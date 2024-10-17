@@ -35,7 +35,7 @@ const AlgoTrading = ({ prices }: { prices: Price[] }) => {
     const fetchBtcData = async () => {
       try {
         const response = await axios.get('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=30');
-        const data = response.data.map((item: any) => ({
+        const data = response.data.map((item: unknown) => ({
           time: new Date(item[0]).toLocaleDateString(),
           price: parseFloat(item[4]), // Closing price
         }));
